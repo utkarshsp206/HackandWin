@@ -7,7 +7,7 @@ const About = () => {
         <div class='background-image top'>
           <h2>Our Mission</h2>
           <p>
-            Practo is on a mission to make quality healthcare affordable and
+            Way2Heal is on a mission to make quality healthcare affordable and
             accessible for over a billion+ Indians. We believe in empowering our
             users with the most accurate, comprehensive, and curated information
             and care, enabling them to make better healthcare decisions.
@@ -45,7 +45,7 @@ const About = () => {
             <img src='/about/trust.png' alt='' />
             <h2>Trust</h2>
             <p>
-              Practo works on trust. We are aware of the responsibility placed
+              way2Heal works on trust. We are aware of the responsibility placed
               on us by 30 crore+ patients and over a lakh doctors. We always
               have and always will do everything we possibly can to uphold this
               trust.
