@@ -54,7 +54,7 @@ main {
 }
 
 .nav-left div {
-  width: 5%;
+  width: 3%;
 }
 
 
@@ -101,7 +101,12 @@ main {
 }
 
 .navbar .nav-right .reqs{
-  background-color: #18206F;
+  /* background-color: #18206F; */
+  background-color: #8DC242;
+  /* background-color: #1CA4AC;
+  background-color: #D9D9D9;
+  background-color: #000000;
+  background-color: #FFFFFF; */
   color: white;
   padding: .45em 1.5em;
   font-size: .8em;

@@ -23,7 +23,7 @@ const Navbar = ({ roleo, usero }) => {
     navigate('/')
   }
   return (
-    <div className='navbar'>
+    <div className='navbar sticky-top bg-light p-2 text-dark bg-opacity-75' >
       <div className='nav-left'>
         <div className='div-logo'>
           <a href='/'>
