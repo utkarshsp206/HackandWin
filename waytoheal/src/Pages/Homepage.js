@@ -134,7 +134,7 @@ const togglePopup = () => {
             </a>
           </div>
 
-          <a href='/hospitals' className='down'>
+          <a href='/hospitals' className='down'style={{ textDecoration: 'none' }}>
             <div className='sp-card'>
               <div className='img'>
                 <img src='/material/health/preg.png' alt='' />
