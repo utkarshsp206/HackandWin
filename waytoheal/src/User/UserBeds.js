@@ -48,7 +48,7 @@ const UserBeds = ({ data }) => {
                   Booked for: <span>{d.date}</span>
                 </p>
                 <p>
-                  Numberof Beds Booked: <span>{d.numberOfBeds}</span>
+                  Number of Beds Booked: <span>{d.numberOfBeds}</span>
                 </p>
               </div>
             </div>
