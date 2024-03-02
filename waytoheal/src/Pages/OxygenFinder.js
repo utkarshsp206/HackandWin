@@ -1,57 +1,62 @@
 import React, { useEffect, useState } from 'react'
-
 import axios from '../axios'
-import { toast } from 'react-hot-toast'
+import toast from 'react-hot-toast'
 import LabTestBooking from '../Popups/LabTestBooking'
 import { MutatingDots } from 'react-loader-spinner'
 
-const LabTest = () => {
-  const [tests, setTest] = useState([])
-  const [filteredTests, setFilteredTests] = useState([])
-  const [selectedCategory, setSelectedCategory] = useState('all')
-  const [active, setActive] = useState('all')
+const OxygenFinder = () => {
+  const [location, setLocation] = useState('Kharar')
+  const [type, settype] = useState('F')
+  const [banks, setBanks] = useState([])
   const [isOpen, setIsOpen] = useState(false)
+  const [filtered, setFiltered] = useState([])
   const [id, setId] = useState('')
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    const getAllTests = async () => {
-      setLoading(true)
+    async function get () {
+      try {
+        setLoading(true)
 
-      const response = await axios.get('/getlabtests')
-      console.log(response.data.tests)
-      setTest(response.data.tests)
-      setLoading(false)
+        const res = await axios.get('/oxygen')
+        const all = await res.data.cylinders
+        console.log('no', res.data.cylinders)
+
+        setBanks(all)
+        setLoading(false)
+      } catch (err) {
+        console.error(err)
+        return null
+      }
     }
-    getAllTests()
+
+    get()
   }, [])
 
-  function handleFilter (category) {
-    setSelectedCategory(category)
-    if (category === 'all') {
+  const togglePopup = (id, type) => {
+    setIsOpen(!isOpen)
+    setId(id)
+  }
+
+  const handleSubmit = async e => {
+    e.preventDefault()
+    try {
       setLoading(true)
 
-      setFilteredTests(tests)
-      setLoading(false)
-    } else {
-      setLoading(true)
+      const res = await axios.get(`/oxygen/${location}/${type}`)
 
-      const filtered = tests.filter(test => test.category === category)
-      setFilteredTests(filtered)
-      setActive(category)
-      toast.success(`All ${category} Selected`)
+      console.log('hii', res.data.cylinders)
+      setFiltered(res.data.cylinders)
+      toast.success(`${res.data.cylinders.length} Cylinders Found`)
       setLoading(false)
+    } catch (error) {
+      console.error(error)
+      return null
     }
   }
-
-  const togglePopup = id => {
-    setId(id)
-    setIsOpen(!isOpen)
-  }
-
   return (
     <>
-      <div className='doc-home'></div>
+      <div className='bloodbank'></div>
       {loading && (
         <>
           <div className='loader'>
@@ -71,60 +76,96 @@ const LabTest = () => {
         </>
       )}
 
+      <div className='doc-home'>
+        <div
+          style={{ background: 'white', boxShadow: 'none' }}
+          className='searchbar'
+        >
+          <div className='left'>
+            <div className='title'>Get Oxygen Cylinder</div>
+            <form onSubmit={handleSubmit}>
+              <select
+                name='location'
+                value={location}
+                onChange={e => setLocation(e.target.value)}
+              >
+                <option value='Kharar'>Kharar</option>
+                <option value='Mohali'>Mohali</option>
+                <option value='Chandigarh'>Chandigarh</option>
+              </select>
+              <select
+                id='type'
+                value={type}
+                onChange={e => settype(e.target.value)}
+              >
+                <option value=''>--Select a Cylinder Type--</option>
+                <option value='E'>E</option>
+                <option value='F'>F</option>
+                <option value='H'>H</option>
+              </select>
+              <button className='doc-sub' type='submit'>
+                Search
+              </button>
+            </form>
+          </div>
+          <div className='right'>
+            <img src={'/labtest/OBJECTS.png'} alt='' />
+          </div>
+        </div>
+      </div>
+
       <div className='lab-home'>
         <div className='lab-res'>
           <div className='labres-inside'>
-            <div className='top'>
-              <h4>Find Test by Type</h4>
-              <br />
-              <br />
-              <div className='btns'>
-                <button
-                  onClick={() => handleFilter('Blood Test')}
-                  className={`${
-                    active === 'Blood Test' ? 'active' : 'deactive'
-                  }`}
-                >
-                  Blood Test
-                </button>
-                <button
-                  onClick={() => handleFilter('Urine Test')}
-                  className={`${
-                    active === 'Urine Test' ? 'active' : 'deactive'
-                  }`}
-                >
-                  Urine Test
-                </button>
-                <button
-                  className={`${
-                    active === 'Spurum Test' ? 'active' : 'deactive'
-                  }`}
-                  onClick={() => handleFilter('Spurum Test')}
-                >
-                  Spurum Test
-                </button>
-              </div>
-            </div>
             <div className='down'>
-              <div className='top-booked'>
-                {filteredTests.length > 0 ? (
-                  filteredTests.map(test => (
-                    <div key={test._id} className='tb-card'>
-                      <div className='testname'>{test.testName}</div>
-                      <div className='testdesc'>
-                        {test.testDesc.slice(0, 35)} ....
-                      </div>
-                      <div className='testdreports'>E-Reports in 1 day</div>
-                      <div className='testcost'>Rs. {test.cost}</div>
-                      <button
-                        onClick={() => togglePopup(test._id)}
-                        href=''
-                        className='book-btn'
-                      >
-                        Book
-                      </button>
+              <div className='doc-res'>
+                <div
+                  style={{ padding: '0', marginRight: '46%' }}
+                  className='res-inside'
+                >
+                  {filtered.length > 0 ? (
+                    <div className='title'>
+                      {filtered.length} {type} available in {location} <br />
+                      <span>
+                        <i class='fa-solid fa-circle-check'></i>&nbsp;Book
+                        Oxygens with minimum wait-time {' '}
+                      </span>
                     </div>
-                  ))
+                  ) : (
+                    <div className='none'>Search Your Oxygens Above</div>
+                  )}
+                </div>
+              </div>
+              <div className='top-booked'>
+                {filtered.length > 0 ? (
+                  filtered.map(test => {
+                    const typeData =
+                      test.types &&
+                      test.types.find(group => group.cylinderType === type)
+                    console.log(test)
+                    return (
+                      <div key={test._id} className='tb-card'>
+                        <div className='testname'>{test.name}</div>
+                        <div className='testdesc'></div>
+                        <div className='testdreports'>
+                          {test.location}, {test.address}
+                        </div>
+                        <div className='testcost'>
+                          {typeData ? (
+                            <p>{typeData.cylinderCost}</p>
+                          ) : (
+                            <p>Cost of {type}: Not Available</p>
+                          )}
+                        </div>
+                        <button
+                          onClick={() => togglePopup(test._id, 'medbook')}
+                          className='book-btn'
+                        >
+                          Book
+                        </button>
+                      </div>
+                    )
+                  })
                 ) : (
                   <div className='none'></div>
                 )}
@@ -135,8 +176,8 @@ const LabTest = () => {
                   <div className='left'>
                     <img src='/homepage/specs/acne.png' alt='' />
                     <p>
-                      Need help with booking your test? <br />{' '}
-                      <span>Our experts are here to help you</span>
+                      Need Oxygen in Emergency? <br />{' '}
+                      <span>Our Cylinders are here for you</span>
                     </p>
                   </div>
                   <div className='right'>
@@ -146,93 +187,15 @@ const LabTest = () => {
               </div>
               <br />
               <br />
-
-              <h4>Top Booked Diagnostic Tests</h4>
-              <br />
-              <div className='top-booked'>
-                {tests.slice(0, 4).map(t => {
-                  return (
-                    <div className='tb-card'>
-                      <div className='testname'>{t.testName}</div>
-                      <div className='testdesc'>
-                        {' '}
-                        {t.testDesc.slice(0, 36)} ....
-                      </div>
-                      <div className='testdreports'>E-Reports in 1 day</div>
-                      <div className='testcost'>Rs. {t.cost}</div>
-                      <button
-                        onClick={() => togglePopup(t._id)}
-                        href=''
-                        className='book-btn'
-                      >
-                        Book
-                      </button>
-                    </div>
-                  )
-                })}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className='ads'>
-          <div className='ad-in'>
-            <div className='top'>
-              <h1>WHY BOOK WITH US?</h1>
-              <div className='lists'>
-                <div className='li'>
-                  <div className='img'>
-                    <img src='/labtest/ads (1).png' alt='' />
-                  </div>
-                  <p>
-                    Home sample collection for FREE <br />{' '}
-                    <span>
-                      A certified professional will collect your sample from
-                      your preferred location
-                    </span>
-                  </p>
-                </div>
-                <div className='li'>
-                  <div className='img'>
-                    <img src='/labtest/ads (1).png' alt='' />
-                  </div>
-                  <p>
-                    Home sample collection for FREE <br />{' '}
-                    <span>
-                      A certified professional will collect your sample from
-                      your preferred location
-                    </span>
-                  </p>
-                </div>
-                <div className='li'>
-                  <div className='img'>
-                    <img src='/labtest/ads (1).png' alt='' />
-                  </div>
-                  <p>
-                    Home sample collection for FREE <br />{' '}
-                    <span>
-                      A certified professional will collect your sample from
-                      your preferred location
-                    </span>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className='down'>
-              <h5>Thousands of Happy Customers</h5>
-              <h3>
-                "Very professional phlebo. Excellent job in collecting the
-                sample. No pain at all. Got my report also within 24 hours"{' '}
-                <br /> <span>Jane Doe</span>
-              </h3>
             </div>
           </div>
         </div>
       </div>
+
       {isOpen && (
         <div className='pop-overlay'>
           <div className='popup'>
-            <LabTestBooking id={id} type={'none'} what={'labtest'} />
+            <LabTestBooking id={id} type={type} what={'oxygen'} />
             <button className='cls-btn' onClick={togglePopup}>
               <i class='fa-solid fa-xmark'></i>
             </button>
@@ -243,4 +206,4 @@ const LabTest = () => {
   )
 }
 
-export default LabTest
+export default OxygenFinder
