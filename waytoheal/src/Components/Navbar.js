@@ -27,26 +27,26 @@ const Navbar = ({ roleo, usero }) => {
       <div className='nav-left'>
         <div className='div-logo'>
           <a href='/'>
-            <img src='/icons/logo.png' alt='' />
+            <img src='/icons/logo.png' alt='' style={{height:"auto", width:"50px"}}/>
           </a>
         </div>
         <ul>
           <li>
             {' '}
-            <a href='/doctors'>Find Doctors</a>{' '}
+            <a href='/doctors' className='btn btn-outline-success' style={{textDecoration:"none"}}>Find Doctors</a>{' '}
           </li>
           <li>
             {' '}
-            <a href='/hospitals'>Find Hospitals</a>{' '}
+            <a href='/hospitals' className='btn btn-outline-success' style={{textDecoration:"none"}}>Find Hospitals</a>{' '}
           </li>
 
           <li>
             {' '}
-            <a href='/labtests'>Lab Test</a>{' '}
+            <a href='/labtests' className='btn btn-outline-success' style={{textDecoration:"none"}}>Lab Test</a>{' '}
           </li>
           <li>
             {' '}
-            <a href='/about'>About Us</a>{' '}
+            <a href='/about' className='btn btn-outline-success' style={{textDecoration:"none"}}>About Us</a>{' '}
           </li>
         </ul>
       </div>
@@ -135,8 +135,8 @@ const Navbar = ({ roleo, usero }) => {
           </>
         ) : (
           <>
-            <a className='reqs' onClick={togglePopupCall} href='#'>
-              Request Call
+            <a className='login-btn' onClick={togglePopupCall} href='#'>
+               Call
             </a>
             <a onClick={togglePopup} className='login-btn'>
               Login

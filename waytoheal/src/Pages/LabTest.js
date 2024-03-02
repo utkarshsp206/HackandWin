@@ -140,7 +140,7 @@ const LabTest = () => {
                     </p>
                   </div>
                   <div className='right'>
-                    <button>+91 80856 59484</button>
+                    <button>+91 9565623901</button>
                   </div>
                 </div>
               </div>

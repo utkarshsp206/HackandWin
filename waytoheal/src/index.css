@@ -82,6 +82,7 @@ main {
 
 .nav-left div img {
   width: 140%;
+  /* height:100% !important; */
 }
 
 .nav-right {
@@ -97,7 +98,12 @@ main {
   font-weight: 600;
   color: black;
   padding: .2em 1.5em;
-  border: 1px solid #B51799;
+  border: 1px solid #8DC242;
+  border-radius: 20%;
+}
+.div-logo img {
+  width: 50px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
 }
 
 .navbar .nav-right .reqs{
@@ -113,14 +119,14 @@ main {
 
  
 }
-.navbar .nav-right .reqs:hover{
+.navbar .nav-right .login-btn:hover{
  text-decoration: none;
-  background: #01A400;
+  background: #6fe36f;
 }
 
 
 .nav-right .dpm a:hover {
-  background-color: #B51799;
+  background-color: #8DC242;
   color: white;
 }
 
@@ -140,7 +146,7 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #FBCBDC;
+  background: linear-gradient(90deg, hsla(189, 73%, 39%, 1) 0%, hsla(168, 73%, 39%, 1) 98%);
   padding: 3em .2em;
 
 }
@@ -233,7 +239,16 @@ footer a {
 
 .banner-inside .up {
   display: flex;
-  background: linear-gradient(265.79deg, #ED6293 4.45%, #E15294 27.58%, #B51799 61.59%, #18206F 90.8%);
+  /* background: linear-gradient(265.79deg, #ED6293 4.45%, #E15294 27.58%, #B51799 61.59%, #18206F 90.8%); */
+  background: hsla(85, 51%, 51%, 1);
+
+background: linear-gradient(90deg, hsla(85, 51%, 51%, 1) 0%, hsla(183, 72%, 39%, 1) 99%);
+
+background: -moz-linear-gradient(90deg, hsla(85, 51%, 51%, 1) 0%, hsla(183, 72%, 39%, 1) 99%);
+
+background: -webkit-linear-gradient(90deg, hsla(85, 51%, 51%, 1) 0%, hsla(183, 72%, 39%, 1) 99%);
+
+filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#8DC242", endColorstr="#1CA4AC", GradientType=1 );
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
@@ -323,7 +338,7 @@ footer a {
   display: flex;
   justify-content: center;
   align-items: end;
-  background: rgba(246, 119, 164, 0.38);
+  background: #7cdce1;
 }
 
 
@@ -373,6 +388,9 @@ footer a {
 
 
 }
+.btn:hover{
+  border-radius: 10%;
+}
 
 .spe-inside .up a:hover {
   transform: scale(1.04);
@@ -395,6 +413,9 @@ footer a {
   justify-content: center;
   gap: 6%;
   width: 40%;
+}
+.sp-card img{
+  width: 110%;
 }
 
 .sp-card .title,
@@ -500,7 +521,7 @@ footer a {
 
 .art-inside .title {
   font-size: 11px;
-  color: #B51799;
+  color: #1CA4AC;
 }
 
 
@@ -516,8 +537,10 @@ footer a {
 }
 
 .doc-home .searchbar {
-  background-color: #FBCBDC;
-  min-height: 40vh;
+  
+
+  background: linear-gradient(90deg, hsla(85, 51%, 51%, 1) 0%, hsla(183, 72%, 39%, 1) 99%);
+    min-height: 40vh;
   padding: 1em 0em;
   display: flex;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -778,9 +801,9 @@ footer a {
 
 .doc-bottom .banner {
   width: 90%;
-  background-color: #18206F;
+  background-color: #93C47D;
   display: flex;
-  border-radius: 10px;
+  border-radius: 20px;
   font-size: 1.3em;
   margin-bottom: 10%;
   padding: .9em;
@@ -794,13 +817,14 @@ footer a {
 
 .doc-bottom .banner .left button {
   all: unset;
-  background: #ED6293;
+  background: #19206F;
   width: 50%;
   text-align: center;
   font-weight: 600;
   color: white;
   padding: .6em .9em;
   font-size: small;
+  border-radius: 10px;
 }
 
 .doc-bottom .banner .left span {
@@ -844,7 +868,7 @@ footer a {
   width: 85%;
   display: flex;
   justify-content: space-between;
-  background: #FBCBDC;
+  background: linear-gradient(135deg, hsla(85, 51%, 51%, 1) 0%, hsla(132, 82%, 89%, 1) 100%);;
   align-items: center;
   border-radius: 10px;
 }
@@ -932,7 +956,7 @@ footer a {
   width: 20%;
   padding: .6em .5em;
   text-align: center;
-  border-right: 6px solid #FBCBDC;
+  border-right: 6px solid #8DC242;
 }
 
 .labres-inside .top .btns button:nth-last-child(1) {
@@ -974,12 +998,14 @@ footer a {
   width: 100%;
   height: 220px;
   border: 1px solid gray;
+  background: linear-gradient(135deg, hsla(85, 51%, 51%, 1) 0%, hsla(132, 82%, 89%, 1) 100%);
   padding: .4em 0em 0em 0em;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   column-gap: .6em;
   font-weight: 400;
+  border-radius: 10px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
