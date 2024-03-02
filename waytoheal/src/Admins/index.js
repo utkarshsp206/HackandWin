@@ -1,0 +1,8 @@
+export {default as UserMedicine} from './UserMedicine'
+export {default as UserApointments} from './UserApointments'
+export {default as UserBlood} from './UserBlood'
+export {default as UserConsult} from './UserConsult'
+export {default as UserLabs} from './UserLabs'
+export {default as UserOxygen} from './UserOxygen'
+export {default as UserBeds} from './UserBeds'
+export {default as UserCalls} from './UserCalls'
