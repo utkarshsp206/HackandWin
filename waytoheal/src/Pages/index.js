@@ -1,0 +1,7 @@
+export {default as About} from './About'
+export {default as FindDoctors} from './FindDoctors'
+export {default as FindHospital} from './FindHospital'
+export {default as FindMedicine} from './FindMedicine'
+export {default as LabTest} from './LabTest'
+export {default as Homepage} from './Homepage'
+export {default as BloodBank} from './BloodBank'
