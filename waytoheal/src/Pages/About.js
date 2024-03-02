@@ -7,10 +7,7 @@ const About = () => {
         <div class='background-image top'>
           <h2>Our Mission</h2>
           <p>
-            Way2Heal is on a mission to make quality healthcare affordable and
-            accessible for over a billion+ Indians. We believe in empowering our
-            users with the most accurate, comprehensive, and curated information
-            and care, enabling them to make better healthcare decisions.
+            Way2Heal is committed to making quality healthcare affordable and accessible for over a billion+ Indians. We believe in empowering our users with the most accurate, comprehensive, and curated information and care, enabling them to make better healthcare decisions.
           </p>
         </div>
       </div>
@@ -26,29 +23,21 @@ const About = () => {
             <img src='/about/connect.png' alt='' />
             <h2>Connect</h2>
             <p>
-              We understand healthcare goes beyond signs, symptoms, diagnosis,
-              and treatment. It’s about the deep connection between doctors and
-              patients that leads to continuous care and sustained, better
-              outcomes.
+              At Way2Heal, we recognize that healthcare transcends mere signs, symptoms, diagnosis, and treatment. It embodies the profound bond between doctors and patients, fostering continuous care and achieving sustained, improved outcomes.
             </p>
           </div>
           <div className='a-card'>
             <img src='/about/trans.png' alt='' />
             <h2>Transparency</h2>
             <p>
-              We believe in full disclosure. We believe in communicating openly
-              and honestly, and holding ourselves to the highest ethical
-              standards.
+              At Way2Heal, transparency is our cornerstone. We advocate for full disclosure, communicating openly and honestly, and upholding ourselves to the highest ethical standards.
             </p>
           </div>
           <div className='a-card'>
             <img src='/about/trust.png' alt='' />
             <h2>Trust</h2>
             <p>
-              way2Heal works on trust. We are aware of the responsibility placed
-              on us by 30 crore+ patients and over a lakh doctors. We always
-              have and always will do everything we possibly can to uphold this
-              trust.
+              Way2Heal operates on trust. We understand the responsibility placed on us by patients and doctors alike. We are dedicated to upholding this trust in everything we do.
             </p>
           </div>
         </div>
@@ -58,9 +47,7 @@ const About = () => {
         <div className='left'>
           <h2>Data privacy and security is our top priority</h2>
           <p>
-            Data privacy and security has always served as one of the founding
-            philosophies of Practo, and we go to great lengths to safeguard the
-            confidentiality and integrity of our users. Read more here
+            Data privacy and security have always been foundational principles at Practo. We prioritize safeguarding the confidentiality and integrity of our users' information, going to great lengths to ensure their privacy and security.
           </p>
         </div>
         <div className='right'>
