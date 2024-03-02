@@ -5,7 +5,7 @@ const UserApointments = ({data}) => {
   let newdData = []
   newdData = data
   if (!data || data.length === 0) {
-    return <h6 className='nodata'>No data to show for USer Appointments</h6>;
+    return <h6 className='nodata'>No data to show for User Appointments</h6>;
   }
   return (
     <div className='user'>
