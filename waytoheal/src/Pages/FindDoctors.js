@@ -224,8 +224,8 @@ const FindDoctors = () => {
                   Instant appointment with doctors <br />
                   <span>Guaranteed</span> .
                 </p>
-                <p>10,000 Verified Doctors</p>
-                <p>1M+ Patients recommendation</p>
+                <p>Verified Doctors</p>
+                <p>A lot of Patients recommendation</p>
                 <button onClick={hanlechance}>Find me the right doctor</button>
               </div>
               <div className='right'>
