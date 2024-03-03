@@ -1,6 +1,8 @@
 # Way2Heal Project
 
 Welcome to the Way2Heal project! This project aims to revolutionize the healthcare experience by providing a comprehensive platform for users to access healthcare services seamlessly.
+[Way2Heal](https://www.example.com](https://way-2-heal.netlify.app))
+
 
 ## Description
 
